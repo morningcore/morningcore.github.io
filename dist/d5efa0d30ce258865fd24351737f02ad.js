@@ -1160,7 +1160,7 @@ exports.rerender = rerender;
 exports.options = options;
 exports.default = preact;
 //# sourceMappingURL=preact.esm.js.map
-},{}],28:[function(require,module,exports) {
+},{}],27:[function(require,module,exports) {
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -1214,7 +1214,7 @@ if ('development' !== 'production') {
 }
 
 module.exports = warning;
-},{}],27:[function(require,module,exports) {
+},{}],28:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1625,7 +1625,7 @@ var createTransitionManager = function createTransitionManager() {
 };
 
 exports.default = createTransitionManager;
-},{"warning":28}],25:[function(require,module,exports) {
+},{"warning":27}],25:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2002,7 +2002,7 @@ var createBrowserHistory = function createBrowserHistory() {
 };
 
 exports.default = createBrowserHistory;
-},{"warning":28,"invariant":27,"./LocationUtils":22,"./PathUtils":23,"./createTransitionManager":24,"./DOMUtils":25}],20:[function(require,module,exports) {
+},{"warning":27,"invariant":28,"./LocationUtils":22,"./PathUtils":23,"./createTransitionManager":24,"./DOMUtils":25}],20:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2336,7 +2336,7 @@ var createHashHistory = function createHashHistory() {
 };
 
 exports.default = createHashHistory;
-},{"warning":28,"invariant":27,"./LocationUtils":22,"./PathUtils":23,"./createTransitionManager":24,"./DOMUtils":25}],21:[function(require,module,exports) {
+},{"warning":27,"invariant":28,"./LocationUtils":22,"./PathUtils":23,"./createTransitionManager":24,"./DOMUtils":25}],21:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2520,7 +2520,7 @@ var createMemoryHistory = function createMemoryHistory() {
 };
 
 exports.default = createMemoryHistory;
-},{"warning":28,"./PathUtils":23,"./LocationUtils":22,"./createTransitionManager":24}],16:[function(require,module,exports) {
+},{"warning":27,"./PathUtils":23,"./LocationUtils":22,"./createTransitionManager":24}],16:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3890,7 +3890,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '44835' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '35717' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
