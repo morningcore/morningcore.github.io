@@ -1,4 +1,4 @@
-# varharrie's blog
+# morningcore's blog
 
 ## Preview
 
@@ -12,4 +12,4 @@
 
 2. Run script `npm install`
 
-3. Run script `npm run dev`
+3. Run script `npm start`
