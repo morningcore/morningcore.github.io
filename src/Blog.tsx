@@ -23,17 +23,12 @@ export default class Blog extends React.Component<IBlogProps, IBlogState> {
       <div className='Blog'>
         <div className='Blog__header'>
           <div className='Blog__title'>
-            <a href='/'>VARHARRIE</a>
+            <a href='/'>Morningcore</a>
           </div>
           <ul className='Blog__links'>
+            
             <li className='Blog__link'>
-              <a href='https://github.com/varHarrie'>GitHub</a>
-            </li>
-            <li className='Blog__link'>
-              <a href='https://weibo.com/u/2960702231'>Weibo</a>
-            </li>
-            <li className='Blog__link'>
-              <a href='mailto:varharrie@gmail.com'>Email</a>
+              <a href='mailto:caichen.wh@foxmail.com'>Email</a>
             </li>
           </ul>
         </div>

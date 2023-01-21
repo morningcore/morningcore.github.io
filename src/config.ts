@@ -1,6 +1,6 @@
 export default {
-  username: 'varharrie',
-  repo: 'varharrie/varharrie.github.io',
+  username: 'morningcore',
+  repo: 'morningcore/morningcore.github.io',
   pageSize: 10,
   // clientId: '',
   // clientSecret: ''
