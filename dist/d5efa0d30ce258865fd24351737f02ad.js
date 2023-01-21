@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({8:[function(require,module,exports) {
+})({48:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -101,7 +101,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],5:[function(require,module,exports) {
+},{}],38:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -132,19 +132,19 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":8}],18:[function(require,module,exports) {
+},{"./bundle-url":48}],34:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":5}],3:[function(require,module,exports) {
+},{"_css_loader":38}],35:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":5}],15:[function(require,module,exports) {
+},{"_css_loader":38}],36:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1160,7 +1160,7 @@ exports.rerender = rerender;
 exports.options = options;
 exports.default = preact;
 //# sourceMappingURL=preact.esm.js.map
-},{}],27:[function(require,module,exports) {
+},{}],55:[function(require,module,exports) {
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -1214,7 +1214,7 @@ if ('development' !== 'production') {
 }
 
 module.exports = warning;
-},{}],28:[function(require,module,exports) {
+},{}],56:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1261,7 +1261,7 @@ var invariant = function (condition, format, a, b, c, d, e, f) {
 };
 
 module.exports = invariant;
-},{}],29:[function(require,module,exports) {
+},{}],59:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1337,7 +1337,7 @@ function resolvePathname(to) {
 }
 
 exports.default = resolvePathname;
-},{}],30:[function(require,module,exports) {
+},{}],60:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1385,7 +1385,7 @@ function valueEqual(a, b) {
 }
 
 exports.default = valueEqual;
-},{}],23:[function(require,module,exports) {
+},{}],47:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1448,7 +1448,7 @@ var createPath = exports.createPath = function createPath(location) {
 
   return path;
 };
-},{}],22:[function(require,module,exports) {
+},{}],46:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1537,7 +1537,7 @@ var createLocation = exports.createLocation = function createLocation(path, stat
 var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a, b) {
   return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && (0, _valueEqual2.default)(a.state, b.state);
 };
-},{"resolve-pathname":29,"value-equal":30,"./PathUtils":23}],24:[function(require,module,exports) {
+},{"resolve-pathname":59,"value-equal":60,"./PathUtils":47}],57:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1625,7 +1625,7 @@ var createTransitionManager = function createTransitionManager() {
 };
 
 exports.default = createTransitionManager;
-},{"warning":27}],25:[function(require,module,exports) {
+},{"warning":55}],58:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1683,7 +1683,7 @@ var supportsGoWithoutReloadUsingHash = exports.supportsGoWithoutReloadUsingHash 
 var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
   return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
 };
-},{}],19:[function(require,module,exports) {
+},{}],43:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2002,7 +2002,7 @@ var createBrowserHistory = function createBrowserHistory() {
 };
 
 exports.default = createBrowserHistory;
-},{"warning":27,"invariant":28,"./LocationUtils":22,"./PathUtils":23,"./createTransitionManager":24,"./DOMUtils":25}],20:[function(require,module,exports) {
+},{"warning":55,"invariant":56,"./LocationUtils":46,"./PathUtils":47,"./createTransitionManager":57,"./DOMUtils":58}],44:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2336,7 +2336,7 @@ var createHashHistory = function createHashHistory() {
 };
 
 exports.default = createHashHistory;
-},{"warning":27,"invariant":28,"./LocationUtils":22,"./PathUtils":23,"./createTransitionManager":24,"./DOMUtils":25}],21:[function(require,module,exports) {
+},{"warning":55,"invariant":56,"./LocationUtils":46,"./PathUtils":47,"./createTransitionManager":57,"./DOMUtils":58}],45:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2520,7 +2520,7 @@ var createMemoryHistory = function createMemoryHistory() {
 };
 
 exports.default = createMemoryHistory;
-},{"warning":27,"./PathUtils":23,"./LocationUtils":22,"./createTransitionManager":24}],16:[function(require,module,exports) {
+},{"warning":55,"./PathUtils":47,"./LocationUtils":46,"./createTransitionManager":57}],39:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2575,7 +2575,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.createBrowserHistory = _createBrowserHistory3.default;
 exports.createHashHistory = _createHashHistory3.default;
 exports.createMemoryHistory = _createMemoryHistory3.default;
-},{"./createBrowserHistory":19,"./createHashHistory":20,"./createMemoryHistory":21,"./LocationUtils":22,"./PathUtils":23}],17:[function(require,module,exports) {
+},{"./createBrowserHistory":43,"./createHashHistory":44,"./createMemoryHistory":45,"./LocationUtils":46,"./PathUtils":47}],40:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2958,7 +2958,7 @@ exports.Route = Route;
 exports.Link = Link;
 exports.default = Router;
 //# sourceMappingURL=preact-router.es.js.map
-},{"preact":15}],13:[function(require,module,exports) {
+},{"preact":36}],51:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3012,7 +3012,7 @@ function format(source, format) {
     });
 }
 exports.format = format;
-},{}],9:[function(require,module,exports) {
+},{}],49:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3046,7 +3046,7 @@ var Comment = /** @class */function (_super) {
     return Comment;
 }(React.Component);
 exports.default = Comment;
-},{"preact":15,"../libs/dateUtil":13}],10:[function(require,module,exports) {
+},{"preact":36,"../libs/dateUtil":51}],50:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3078,7 +3078,7 @@ var Loader = /** @class */function (_super) {
     return Loader;
 }(React.Component);
 exports.default = Loader;
-},{"preact":15}],26:[function(require,module,exports) {
+},{"preact":36}],61:[function(require,module,exports) {
 (function(self) {
   'use strict';
 
@@ -3541,7 +3541,7 @@ exports.default = Loader;
   self.fetch.polyfill = true
 })(typeof self !== 'undefined' ? self : this);
 
-},{}],12:[function(require,module,exports) {
+},{}],54:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3550,7 +3550,7 @@ exports.default = {
     repo: 'morningcore/morningcore.github.io',
     pageSize: 10
 };
-},{}],14:[function(require,module,exports) {
+},{}],52:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3629,7 +3629,7 @@ exports.listComments = listComments;
 //     }
 //   )
 // }
-},{"whatwg-fetch":26,"../config":12}],6:[function(require,module,exports) {
+},{"whatwg-fetch":61,"../config":54}],41:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3696,7 +3696,7 @@ var Article = /** @class */function (_super) {
     return Article;
 }(React.Component);
 exports.default = Article;
-},{"preact":15,"./components/Comment":9,"./components/Loader":10,"./libs/dateUtil":13,"./libs/githubApis":14}],11:[function(require,module,exports) {
+},{"preact":36,"./components/Comment":49,"./components/Loader":50,"./libs/dateUtil":51,"./libs/githubApis":52}],53:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3746,7 +3746,7 @@ var Pagination = /** @class */function (_super) {
     return Pagination;
 }(React.Component);
 exports.default = Pagination;
-},{"preact":15}],7:[function(require,module,exports) {
+},{"preact":36}],42:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3820,7 +3820,7 @@ var Articles = /** @class */function (_super) {
     return Articles;
 }(React.Component);
 exports.default = Articles;
-},{"preact":15,"./libs/dateUtil":13,"./libs/githubApis":14,"./components/Loader":10,"./components/Pagination":11,"./config":12}],4:[function(require,module,exports) {
+},{"preact":36,"./libs/dateUtil":51,"./libs/githubApis":52,"./components/Loader":50,"./components/Pagination":53,"./config":54}],37:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3859,7 +3859,7 @@ var Blog = /** @class */function (_super) {
     return Blog;
 }(React.Component);
 exports.default = Blog;
-},{"history":16,"preact":15,"preact-router":17,"./Article":6,"./Articles":7}],2:[function(require,module,exports) {
+},{"history":39,"preact":36,"preact-router":40,"./Article":41,"./Articles":42}],33:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3868,7 +3868,7 @@ require("./index.less");
 var React = require("preact");
 var Blog_1 = require("./Blog");
 React.render(React.createElement("div", { id: 'root' }, React.createElement(Blog_1.default, null)), document.body);
-},{"github-markdown-css/github-markdown.css":18,"./index.less":3,"preact":15,"./Blog":4}],31:[function(require,module,exports) {
+},{"github-markdown-css/github-markdown.css":34,"./index.less":35,"preact":36,"./Blog":37}],62:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -3991,5 +3991,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[31,2])
+},{}]},{},[62,33])
 //# sourceMappingURL=/dist/d5efa0d30ce258865fd24351737f02ad.map
