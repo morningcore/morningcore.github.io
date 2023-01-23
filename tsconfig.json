@@ -19,7 +19,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "declaration": true,
-    "declarationDir": "./dist"
+    "declarationDir": "./docs"
   },
   "exclude": [
     "node_modules",
