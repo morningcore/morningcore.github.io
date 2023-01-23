@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({16:[function(require,module,exports) {
+})({8:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -101,7 +101,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],10:[function(require,module,exports) {
+},{}],5:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -132,19 +132,19 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":16}],15:[function(require,module,exports) {
+},{"./bundle-url":8}],18:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":10}],6:[function(require,module,exports) {
+},{"_css_loader":5}],3:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":10}],14:[function(require,module,exports) {
+},{"_css_loader":5}],15:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1160,7 +1160,7 @@ exports.rerender = rerender;
 exports.options = options;
 exports.default = preact;
 //# sourceMappingURL=preact.esm.js.map
-},{}],32:[function(require,module,exports) {
+},{}],27:[function(require,module,exports) {
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -1214,7 +1214,7 @@ if ('development' !== 'production') {
 }
 
 module.exports = warning;
-},{}],34:[function(require,module,exports) {
+},{}],28:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1261,7 +1261,7 @@ var invariant = function (condition, format, a, b, c, d, e, f) {
 };
 
 module.exports = invariant;
-},{}],35:[function(require,module,exports) {
+},{}],30:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1337,7 +1337,7 @@ function resolvePathname(to) {
 }
 
 exports.default = resolvePathname;
-},{}],36:[function(require,module,exports) {
+},{}],29:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1385,7 +1385,7 @@ function valueEqual(a, b) {
 }
 
 exports.default = valueEqual;
-},{}],28:[function(require,module,exports) {
+},{}],23:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1448,7 +1448,7 @@ var createPath = exports.createPath = function createPath(location) {
 
   return path;
 };
-},{}],29:[function(require,module,exports) {
+},{}],22:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1537,7 +1537,7 @@ var createLocation = exports.createLocation = function createLocation(path, stat
 var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a, b) {
   return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && (0, _valueEqual2.default)(a.state, b.state);
 };
-},{"resolve-pathname":35,"value-equal":36,"./PathUtils":28}],31:[function(require,module,exports) {
+},{"resolve-pathname":30,"value-equal":29,"./PathUtils":23}],24:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1625,7 +1625,7 @@ var createTransitionManager = function createTransitionManager() {
 };
 
 exports.default = createTransitionManager;
-},{"warning":32}],33:[function(require,module,exports) {
+},{"warning":27}],25:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1683,7 +1683,7 @@ var supportsGoWithoutReloadUsingHash = exports.supportsGoWithoutReloadUsingHash 
 var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
   return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
 };
-},{}],27:[function(require,module,exports) {
+},{}],19:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2002,7 +2002,7 @@ var createBrowserHistory = function createBrowserHistory() {
 };
 
 exports.default = createBrowserHistory;
-},{"warning":32,"invariant":34,"./LocationUtils":29,"./PathUtils":28,"./createTransitionManager":31,"./DOMUtils":33}],25:[function(require,module,exports) {
+},{"warning":27,"invariant":28,"./LocationUtils":22,"./PathUtils":23,"./createTransitionManager":24,"./DOMUtils":25}],21:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2336,7 +2336,7 @@ var createHashHistory = function createHashHistory() {
 };
 
 exports.default = createHashHistory;
-},{"warning":32,"invariant":34,"./LocationUtils":29,"./PathUtils":28,"./createTransitionManager":31,"./DOMUtils":33}],26:[function(require,module,exports) {
+},{"warning":27,"invariant":28,"./LocationUtils":22,"./PathUtils":23,"./createTransitionManager":24,"./DOMUtils":25}],20:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2520,7 +2520,7 @@ var createMemoryHistory = function createMemoryHistory() {
 };
 
 exports.default = createMemoryHistory;
-},{"warning":32,"./PathUtils":28,"./LocationUtils":29,"./createTransitionManager":31}],17:[function(require,module,exports) {
+},{"warning":27,"./PathUtils":23,"./LocationUtils":22,"./createTransitionManager":24}],17:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2575,7 +2575,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.createBrowserHistory = _createBrowserHistory3.default;
 exports.createHashHistory = _createHashHistory3.default;
 exports.createMemoryHistory = _createMemoryHistory3.default;
-},{"./createBrowserHistory":27,"./createHashHistory":25,"./createMemoryHistory":26,"./LocationUtils":29,"./PathUtils":28}],18:[function(require,module,exports) {
+},{"./createBrowserHistory":19,"./createHashHistory":21,"./createMemoryHistory":20,"./LocationUtils":22,"./PathUtils":23}],16:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2958,7 +2958,7 @@ exports.Route = Route;
 exports.Link = Link;
 exports.default = Router;
 //# sourceMappingURL=preact-router.es.js.map
-},{"preact":14}],21:[function(require,module,exports) {
+},{"preact":15}],12:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3012,7 +3012,7 @@ function format(source, format) {
     });
 }
 exports.format = format;
-},{}],19:[function(require,module,exports) {
+},{}],9:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3046,7 +3046,7 @@ var Comment = /** @class */function (_super) {
     return Comment;
 }(React.Component);
 exports.default = Comment;
-},{"preact":14,"../libs/dateUtil":21}],20:[function(require,module,exports) {
+},{"preact":15,"../libs/dateUtil":12}],10:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3078,7 +3078,7 @@ var Loader = /** @class */function (_super) {
     return Loader;
 }(React.Component);
 exports.default = Loader;
-},{"preact":14}],24:[function(require,module,exports) {
+},{"preact":15}],26:[function(require,module,exports) {
 (function(self) {
   'use strict';
 
@@ -3541,16 +3541,16 @@ exports.default = Loader;
   self.fetch.polyfill = true
 })(typeof self !== 'undefined' ? self : this);
 
-},{}],23:[function(require,module,exports) {
+},{}],14:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    username: 'varharrie',
-    repo: 'varharrie/varharrie.github.io',
+    username: 'morningcore',
+    repo: 'morningcore/morningcore.github.io',
     pageSize: 10
 };
-},{}],22:[function(require,module,exports) {
+},{}],13:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3629,7 +3629,7 @@ exports.listComments = listComments;
 //     }
 //   )
 // }
-},{"whatwg-fetch":24,"../config":23}],12:[function(require,module,exports) {
+},{"whatwg-fetch":26,"../config":14}],6:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3696,7 +3696,7 @@ var Article = /** @class */function (_super) {
     return Article;
 }(React.Component);
 exports.default = Article;
-},{"preact":14,"./components/Comment":19,"./components/Loader":20,"./libs/dateUtil":21,"./libs/githubApis":22}],30:[function(require,module,exports) {
+},{"preact":15,"./components/Comment":9,"./components/Loader":10,"./libs/dateUtil":12,"./libs/githubApis":13}],11:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3746,7 +3746,7 @@ var Pagination = /** @class */function (_super) {
     return Pagination;
 }(React.Component);
 exports.default = Pagination;
-},{"preact":14}],13:[function(require,module,exports) {
+},{"preact":15}],7:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3820,7 +3820,7 @@ var Articles = /** @class */function (_super) {
     return Articles;
 }(React.Component);
 exports.default = Articles;
-},{"preact":14,"./libs/dateUtil":21,"./libs/githubApis":22,"./components/Loader":20,"./components/Pagination":30,"./config":23}],7:[function(require,module,exports) {
+},{"preact":15,"./libs/dateUtil":12,"./libs/githubApis":13,"./components/Loader":10,"./components/Pagination":11,"./config":14}],4:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -3854,12 +3854,12 @@ var Blog = /** @class */function (_super) {
         return _this;
     }
     Blog.prototype.render = function (props) {
-        return React.createElement("div", { className: 'Blog' }, React.createElement("div", { className: 'Blog__header' }, React.createElement("div", { className: 'Blog__title' }, React.createElement("a", { href: '/' }, "VARHARRIE")), React.createElement("ul", { className: 'Blog__links' }, React.createElement("li", { className: 'Blog__link' }, React.createElement("a", { href: 'https://github.com/varHarrie' }, "GitHub")), React.createElement("li", { className: 'Blog__link' }, React.createElement("a", { href: 'https://weibo.com/u/2960702231' }, "Weibo")), React.createElement("li", { className: 'Blog__link' }, React.createElement("a", { href: 'mailto:varharrie@gmail.com' }, "Email")))), React.createElement("div", { className: 'Blog__body' }, React.createElement(preact_router_1.Router, { history: history }, React.createElement(Articles_1.default, { path: '/:page?' }), React.createElement(Article_1.default, { path: '/articles/:number' }))), React.createElement("div", { className: 'Blog__footer' }));
+        return React.createElement("div", { className: 'Blog' }, React.createElement("div", { className: 'Blog__header' }, React.createElement("div", { className: 'Blog__title' }, React.createElement("a", { href: '/' }, "Morningcore")), React.createElement("ul", { className: 'Blog__links' }, React.createElement("li", { className: 'Blog__link' }, React.createElement("a", { href: 'https://github.com/Morningcore' }, "GitHub")), React.createElement("li", { className: 'Blog__link' }, React.createElement("a", { href: 'mailto:caichen.wh@foxmail.com' }, "Email")))), React.createElement("div", { className: 'Blog__body' }, React.createElement(preact_router_1.Router, { history: history }, React.createElement(Articles_1.default, { path: '/:page?' }), React.createElement(Article_1.default, { path: '/articles/:number' }))), React.createElement("div", { className: 'Blog__footer' }));
     };
     return Blog;
 }(React.Component);
 exports.default = Blog;
-},{"history":17,"preact":14,"preact-router":18,"./Article":12,"./Articles":13}],4:[function(require,module,exports) {
+},{"history":17,"preact":15,"preact-router":16,"./Article":6,"./Articles":7}],2:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3868,7 +3868,7 @@ require("./index.less");
 var React = require("preact");
 var Blog_1 = require("./Blog");
 React.render(React.createElement("div", { id: 'root' }, React.createElement(Blog_1.default, null)), document.body);
-},{"github-markdown-css/github-markdown.css":15,"./index.less":6,"preact":14,"./Blog":7}],37:[function(require,module,exports) {
+},{"github-markdown-css/github-markdown.css":18,"./index.less":3,"preact":15,"./Blog":4}],31:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -3890,7 +3890,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51493' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51976' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -3991,5 +3991,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[37,4])
+},{}]},{},[31,2])
 //# sourceMappingURL=/dist/c8a13ec0e8632366b3c7b905340ffbe7.map
