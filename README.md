@@ -1,21 +1,15 @@
-# varHarrie's Blog
+# varharrie's blog
 
-Personal blog site based on github issues.
+## Preview
 
-## Features
+<p align="center">
+  <img src="./preview.png" />
+</p>
 
-- 💪 No need backend server
-- 📱 Mobile compatible
-- 🌙 Supports dark theme (WIP)
-- 🌏 Supports i18n
-- ⚾︎ Integrates code playground
+## Getting Started
 
-## Getting started
+1. Clone this repository
 
-1. Clone the repository: `git clone https://github.com/varHarrie/varharrie.github.io.git`
-2. Install dependencies: `yarn`
-3. Start dev server: `yarn run dev`
+2. Run script `npm install`
 
-## License
-
-[MIT](./LICENSE)
+3. Run script `npm run dev`
