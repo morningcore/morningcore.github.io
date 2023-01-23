@@ -7,8 +7,8 @@
 @black-light: fadeout(@black, 40%);
 @white: white;
 @gray: #eee;
-@font-family: 'Segoe UI', 'Consolas', 'monospace', 'Microsoft YaHei';
-@font-family2: 'Consolas', 'monospace', 'Microsoft YaHei';
+@font-family: 'Trebuchet MS', 'kai';//'Consolas', 'monospace', 'Microsoft YaHei';
+@font-family2: 'Trebuchet MS', 'kai';//'Consolas', 'monospace', 'Microsoft YaHei';
 @radius: 4px;
 
 body {
@@ -40,7 +40,7 @@ a {
   }
 
   &__title {
-    font-size: 20px;
+    font-size: 40px;
   }
 
   &__links {
@@ -62,6 +62,7 @@ a {
 
   &__body {
     margin-top: 50px;
+    font-family: @font-family;
   }
 
   &__footer {
@@ -105,6 +106,7 @@ a {
     padding: 30px 0;
     margin-bottom: 30px;
     border-bottom: 1px dashed @gray;
+    font-family: @font-family;
   }
 
   &__title {
@@ -118,6 +120,7 @@ a {
     color: @black-light;
     font-size: 14px;
     overflow: hidden;
+    font-family: @font-family;
   }
 
   &__date {
@@ -157,9 +160,10 @@ a {
 
 .markdown-body {
   color: @black;
+  font-family: @font-family;
 
   pre {
-    font-family: @font-family2;
+    font-family: @font-family;
   }
 
   code {
@@ -196,7 +200,9 @@ a {
     width: 30px;
     height: 30px;
     box-sizing: border-box;
-    content: '';
+    content: '
+      font-family: @font-family;
+    ';
     border: 2px solid @black-light;
     animation: rotating 1.5s ease-in-out infinite;
   }
