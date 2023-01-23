@@ -1,9 +1,9 @@
 # Morningcore's blog
 
-## Preview
+## Config
 
 <p align="center">
-  <img src="./preview.png" />
+  <img src="./config.png" />
 </p>
 
 ## Getting Started
