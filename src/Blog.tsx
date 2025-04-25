@@ -12,15 +12,6 @@ export interface IBlogProps {}
 export interface IBlogState {}
 
 export default class Blog extends React.Component<IBlogProps, IBlogState> {
-  componentDidMount() {
-    // 初始化访问统计
-    if (window.Finicount) {
-      window.Finicount.init({
-        elementId: 'finicount_views',
-        textElementId: 'finicount_text'
-      });
-    }
-  }
 
   constructor (props: IBlogProps) {
     super(props)
@@ -43,10 +34,7 @@ export default class Blog extends React.Component<IBlogProps, IBlogState> {
               <a href='mailto:caichen.wh@foxmail.com'>Email</a>
             </li>
 
-            <li className='Blog__link'>
-               <span id="finicount_views"></span>
-               <span id="finicount_text">次访问</span>  {/* 新增此行 */}
-            </li>
+           
           </ul>
         </div>
         <div className='Blog__body'>
