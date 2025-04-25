@@ -35,7 +35,7 @@ export default class Blog extends React.Component<IBlogProps, IBlogState> {
             </li>
 
             <li className='Blog__link'>
-               <span id="finicount_views"></span>
+               <span id="finicount_views"></span><span id="finicount_text">次访问</span>
             </li>
           </ul>
         </div>
