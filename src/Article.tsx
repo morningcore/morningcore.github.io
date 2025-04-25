@@ -62,7 +62,7 @@ export default class Article extends React.Component<IArticleProps, IArticleStat
             {article.title}
           </h1>
           <div className='Article__details'>
-            <span className='Article__date'>{dateUtil.format(article.created_at, 'YYYY / MM / DD')}</span>
+            <span className='Article__date'>{dateUtil.format(article.created_at, 'DD / MM / YYYY')}</span>
             <span className='Article__tags'>
               {article.labels.map((label) => (
                 <span className='Article__tag'>{label.name}</span>

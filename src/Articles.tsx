@@ -65,7 +65,7 @@ export default class Articles extends React.Component<IArticlesProps, IArticlesS
         <ul className='Articles__items'>
           {articles.map((article) => (
             <li className='Articles__item'>
-              <span className='Articles__item-date'>{dateUtil.format(article.created_at, 'YYYY / MM / DD')}</span>
+              <span className='Articles__item-date'>{dateUtil.format(article.created_at, 'DD / MM / YYYY')}</span>
               <a href={`/articles/${article.number}`} className='Articles__item-title'>{article.title}</a>
             </li>
           ))}
