@@ -25,7 +25,14 @@ export default class Blog extends React.Component<IBlogProps, IBlogState> {
           <div className='Blog__title'>
             <a href='/'>蔡老板的树洞</a>
           </div>
-         
+          <ul className='Blog__links'>
+            
+            <li className='Blog__link'>
+              <a href='mailto:caichen.wh@foxmail.com'>Email</a>
+            </li>
+
+           
+          </ul>
         </div>
         <div className='Blog__body'>
           <Router history={history}>
