@@ -3687,7 +3687,7 @@ var Article = /** @class */function (_super) {
         if (!article) {
             return React.createElement(Loader_1.default, null);
         }
-        return React.createElement("div", { className: 'Article' }, React.createElement("div", { className: 'Article__header' }, React.createElement("h1", { className: 'Article__title' }, article.title), React.createElement("div", { className: 'Article__details' }, React.createElement("span", { className: 'Article__date' }, dateUtil.format(article.created_at, 'DD / MM / YYYY')), React.createElement("span", { className: 'Article__tags' }, article.labels.map(function (label) {
+        return React.createElement("div", { className: 'Article' }, React.createElement("div", { className: 'Article__header' }, React.createElement("h1", { className: 'Article__title' }, article.title), React.createElement("div", { className: 'Article__details' }, React.createElement("span", { className: 'Article__date' }, dateUtil.format(article.created_at, 'YYYY / MM / DD')), React.createElement("span", { className: 'Article__tags' }, article.labels.map(function (label) {
             return React.createElement("span", { className: 'Article__tag' }, label.name);
         })), React.createElement("span", { className: 'Article__comments' }, "\u8BC4\u8BBA\xA0", article.comments))), React.createElement("div", { className: 'Article__body' }, React.createElement("div", { className: 'Article__content markdown-body', dangerouslySetInnerHTML: { __html: article.body_html } })), React.createElement("div", { className: 'Article__footer' }, React.createElement("a", { href: article.html_url + "#partial-timeline-marker" }, React.createElement("div", { className: 'Article__reply' }, "\u70B9\u51FB\u8BC4\u8BBA")), comments.map(function (comment) {
             return React.createElement(Comment_1.default, { comment: comment });
@@ -3814,7 +3814,7 @@ var Articles = /** @class */function (_super) {
         }
         var totalPage = Math.ceil(total / config_1.default.pageSize);
         return React.createElement("div", { className: 'Articles' }, React.createElement("ul", { className: 'Articles__items' }, articles.map(function (article) {
-            return React.createElement("li", { className: 'Articles__item' }, React.createElement("span", { className: 'Articles__item-date' }, dateUtil.format(article.created_at, 'DD / MM / YYYY')), React.createElement("a", { href: "/articles/" + article.number, className: 'Articles__item-title' }, article.title));
+            return React.createElement("li", { className: 'Articles__item' }, React.createElement("span", { className: 'Articles__item-date' }, dateUtil.format(article.created_at, 'YYYY / MM / DD')), React.createElement("a", { href: "/articles/" + article.number, className: 'Articles__item-title' }, article.title));
         })), React.createElement(Pagination_1.default, { page: page, total: totalPage }));
     };
     return Articles;
