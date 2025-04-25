@@ -12,6 +12,15 @@ export interface IBlogProps {}
 export interface IBlogState {}
 
 export default class Blog extends React.Component<IBlogProps, IBlogState> {
+  componentDidMount() {
+    // 初始化访问统计
+    if (window.Finicount) {
+      window.Finicount.init({
+        elementId: 'finicount_views',
+        textElementId: 'finicount_text'
+      });
+    }
+  }
 
   constructor (props: IBlogProps) {
     super(props)
