@@ -1,11 +1,4 @@
-# Morningcore's blog
-
-## Config
-
-
-
-## Getting Started
-
+# README.md
 1. Clone this repository
 
 2. Run script `npm install`

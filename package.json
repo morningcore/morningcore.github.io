@@ -9,7 +9,7 @@
     "build": "parcel build index.html --public-url ./"
   },
   "keywords": [],
-  "author": "Morningcore<caichen.wh@foxmail.com>",
+  "author": "",
   "license": "MIT",
   "devDependencies": {
     "less": "^3.0.1",
