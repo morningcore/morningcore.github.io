@@ -35,10 +35,7 @@ export default class Blog extends React.Component<IBlogProps, IBlogState> {
             </li>
 
             <li className='Blog__link'>
-              <div class="visitsdiv">
-               <span id="finicount_text"></span><span id="finicount_views"></span>
-              </div>
-              <a href=''>Email</a>
+               <span id="finicount_views"></span>
             </li>
           </ul>
         </div>
