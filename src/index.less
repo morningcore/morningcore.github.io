@@ -305,3 +305,25 @@ a {
     }
   }
 }
+
+// 新增统计容器样式
+.stats-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 20px 0;
+  
+  .visitsdiv {
+    display: inline-block;
+    margin: 0 auto;
+    #finicount_views {
+      color: @red;
+    }
+  }
+  
+  .empty-lines {
+    height: 60px; // 相当于3个空行
+  }
+}
