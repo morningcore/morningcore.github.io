@@ -23,7 +23,7 @@ export default class Blog extends React.Component<IBlogProps, IBlogState> {
       <div className='Blog'>
         <div className='Blog__header'>
           <div className='Blog__title'>
-            <a href='/'>晨间说</a>
+            <a href='/'>蔡老板的树洞</a>
           </div>
           <ul className='Blog__links'>
             

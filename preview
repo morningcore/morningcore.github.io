@@ -1,6 +1,0 @@
-rm -rf .cache dist node_modules
-
-npm install 
-open http://localhost
-npm start
-

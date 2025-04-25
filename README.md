@@ -2,9 +2,7 @@
 
 ## Config
 
-<p align="center">
-  <img src="./config.png" />
-</p>
+
 
 ## Getting Started
 
@@ -12,4 +10,4 @@
 
 2. Run script `npm install`
 
-3. Run script `npm run dev`
+3. Run script `npm run start`
