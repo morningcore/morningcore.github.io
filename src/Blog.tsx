@@ -33,6 +33,13 @@ export default class Blog extends React.Component<IBlogProps, IBlogState> {
             <li className='Blog__link'>
               <a href='mailto:caichen.wh@foxmail.com'>Email</a>
             </li>
+
+            <li className='Blog__link'>
+              <div class="visitsdiv">
+               <span id="finicount_text"></span><span id="finicount_views"></span>
+              </div>
+              <a href=''>Email</a>
+            </li>
           </ul>
         </div>
         <div className='Blog__body'>
