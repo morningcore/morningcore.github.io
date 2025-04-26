@@ -90,7 +90,7 @@ export default function Main() {
         <Header>
           <HeaderCenter>
             <TitleLink to="/">
-              
+              <span>://</span>
               <Title>{title}</Title>
             </TitleLink>
 
@@ -103,12 +103,19 @@ export default function Main() {
                 <IconSnippets tw="inline lg:hidden" />
                 <span tw="hidden lg:inline">{t('tab.snippets')}</span>
               </NavLinkItem>
-              
+              <NavLinkItem to="/projects">
+                <IconProjects tw="inline lg:hidden" />
+                <span tw="hidden lg:inline">{t('tab.projects')}</span>
+              </NavLinkItem>
 
               <Divider />
 
-             
-              
+              <NavItem href={`mailto:${email}`}>
+                <IconEmail />
+              </NavItem>
+              <NavItem href={githubUrl} target="_blank">
+                <IconGithub />
+              </NavItem>
               <NavItem onClick={onToggleLanguage}>
                 <IconLanguage />
               </NavItem>
@@ -123,12 +130,10 @@ export default function Main() {
 
         <Footer>
           <FooterCenter>
-            
-          <script async src="//finicounter.eu.org/finicounter.js"></script>
-
-            <div class="visitsdiv">
-              <p align="center"><span id="finicount_views"></span>次访问</p>                        
-            </div>
+            <a tw="hover:text-blue-500" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              CC BY-NC-SA 4.0
+            </a>
+            <span tw="ml-2">2016-present © varHarrie</span>
           </FooterCenter>
         </Footer>
       </Wrapper>

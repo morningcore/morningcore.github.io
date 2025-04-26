@@ -1,4 +1,4 @@
-# morningcore's Blog
+# varHarrie's Blog
 
 Personal blog site based on github issues.
 
@@ -12,7 +12,7 @@ Personal blog site based on github issues.
 
 ## Getting started
 
-1. Clone the repository: `git clone https://github.com/morningcore/morningcore.github.io.git`
+1. Clone the repository: `git clone https://github.com/varHarrie/varharrie.github.io.git`
 2. Install dependencies: `yarn`
 3. Rename .env.example to .env.local and Modify its content
 4. Start dev server: `yarn run dev`
