@@ -3854,7 +3854,7 @@ var Blog = /** @class */function (_super) {
         return _this;
     }
     Blog.prototype.render = function (props) {
-        return React.createElement("div", { className: 'Blog' }, React.createElement("div", { className: 'Blog__header' }, React.createElement("div", { className: 'Blog__title' }, React.createElement("a", { href: '/' }, "\u8521\u8001\u677F\u7684\u6811\u6D1E")), React.createElement("ul", { className: 'Blog__links' }, React.createElement("li", { className: 'Blog__link' }, React.createElement("a", { href: 'mailto:caichen.wh@foxmail.com' }, "Email")))), React.createElement("div", { className: 'Blog__body' }, React.createElement(preact_router_1.Router, { history: history }, React.createElement(Articles_1.default, { path: '/:page?' }), React.createElement(Article_1.default, { path: '/articles/:number' }))), React.createElement("div", { className: 'Blog__footer' }));
+        return React.createElement("div", { className: 'Blog' }, React.createElement("div", { className: 'Blog__header' }, React.createElement("div", { className: 'Blog__title' }, React.createElement("a", { href: '/' }, "\u8521\u8001\u677F\u7684\u6811\u6D1E")), React.createElement("ul", { className: 'Blog__links' })), React.createElement("div", { className: 'Blog__body' }, React.createElement(preact_router_1.Router, { history: history }, React.createElement(Articles_1.default, { path: '/:page?' }), React.createElement(Article_1.default, { path: '/articles/:number' }))), React.createElement("div", { className: 'Blog__footer' }));
     };
     return Blog;
 }(React.Component);
