@@ -1160,7 +1160,7 @@ exports.rerender = rerender;
 exports.options = options;
 exports.default = preact;
 //# sourceMappingURL=preact.esm.js.map
-},{}],49:[function(require,module,exports) {
+},{}],45:[function(require,module,exports) {
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -1214,7 +1214,7 @@ if ('development' !== 'production') {
 }
 
 module.exports = warning;
-},{}],48:[function(require,module,exports) {
+},{}],47:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1261,7 +1261,7 @@ var invariant = function (condition, format, a, b, c, d, e, f) {
 };
 
 module.exports = invariant;
-},{}],44:[function(require,module,exports) {
+},{}],41:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1337,7 +1337,7 @@ function resolvePathname(to) {
 }
 
 exports.default = resolvePathname;
-},{}],45:[function(require,module,exports) {
+},{}],42:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1385,7 +1385,7 @@ function valueEqual(a, b) {
 }
 
 exports.default = valueEqual;
-},{}],42:[function(require,module,exports) {
+},{}],40:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1448,7 +1448,7 @@ var createPath = exports.createPath = function createPath(location) {
 
   return path;
 };
-},{}],41:[function(require,module,exports) {
+},{}],39:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1537,7 +1537,7 @@ var createLocation = exports.createLocation = function createLocation(path, stat
 var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a, b) {
   return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && (0, _valueEqual2.default)(a.state, b.state);
 };
-},{"resolve-pathname":44,"value-equal":45,"./PathUtils":42}],46:[function(require,module,exports) {
+},{"resolve-pathname":41,"value-equal":42,"./PathUtils":40}],44:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1625,7 +1625,7 @@ var createTransitionManager = function createTransitionManager() {
 };
 
 exports.default = createTransitionManager;
-},{"warning":49}],47:[function(require,module,exports) {
+},{"warning":45}],46:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1683,7 +1683,7 @@ var supportsGoWithoutReloadUsingHash = exports.supportsGoWithoutReloadUsingHash 
 var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
   return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
 };
-},{}],39:[function(require,module,exports) {
+},{}],36:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2002,7 +2002,7 @@ var createBrowserHistory = function createBrowserHistory() {
 };
 
 exports.default = createBrowserHistory;
-},{"warning":49,"invariant":48,"./LocationUtils":41,"./PathUtils":42,"./createTransitionManager":46,"./DOMUtils":47}],38:[function(require,module,exports) {
+},{"warning":45,"invariant":47,"./LocationUtils":39,"./PathUtils":40,"./createTransitionManager":44,"./DOMUtils":46}],38:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2336,7 +2336,7 @@ var createHashHistory = function createHashHistory() {
 };
 
 exports.default = createHashHistory;
-},{"warning":49,"invariant":48,"./LocationUtils":41,"./PathUtils":42,"./createTransitionManager":46,"./DOMUtils":47}],40:[function(require,module,exports) {
+},{"warning":45,"invariant":47,"./LocationUtils":39,"./PathUtils":40,"./createTransitionManager":44,"./DOMUtils":46}],37:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2520,7 +2520,7 @@ var createMemoryHistory = function createMemoryHistory() {
 };
 
 exports.default = createMemoryHistory;
-},{"warning":49,"./PathUtils":42,"./LocationUtils":41,"./createTransitionManager":46}],34:[function(require,module,exports) {
+},{"warning":45,"./PathUtils":40,"./LocationUtils":39,"./createTransitionManager":44}],35:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2575,7 +2575,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.createBrowserHistory = _createBrowserHistory3.default;
 exports.createHashHistory = _createHashHistory3.default;
 exports.createMemoryHistory = _createMemoryHistory3.default;
-},{"./createBrowserHistory":39,"./createHashHistory":38,"./createMemoryHistory":40,"./LocationUtils":41,"./PathUtils":42}],35:[function(require,module,exports) {
+},{"./createBrowserHistory":36,"./createHashHistory":38,"./createMemoryHistory":37,"./LocationUtils":39,"./PathUtils":40}],34:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3859,7 +3859,7 @@ var Blog = /** @class */function (_super) {
     return Blog;
 }(React.Component);
 exports.default = Blog;
-},{"history":34,"preact":16,"preact-router":35,"./Article":13,"./Articles":12}],4:[function(require,module,exports) {
+},{"history":35,"preact":16,"preact-router":34,"./Article":13,"./Articles":12}],4:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3868,7 +3868,7 @@ require("./index.less");
 var React = require("preact");
 var Blog_1 = require("./Blog");
 React.render(React.createElement("div", { id: 'root' }, React.createElement(Blog_1.default, null)), document.body);
-},{"github-markdown-css/github-markdown.css":18,"./index.less":6,"preact":16,"./Blog":7}],51:[function(require,module,exports) {
+},{"github-markdown-css/github-markdown.css":18,"./index.less":6,"preact":16,"./Blog":7}],48:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -3890,7 +3890,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '6868' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '14833' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -3991,5 +3991,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[51,4])
+},{}]},{},[48,4])
 //# sourceMappingURL=/dist/8fa23e4d375d4a90b4f83043ed57170b.map
