@@ -1,5 +1,7 @@
 export default {
   username: 'morningcore',
   repo: 'morningcore/morningcore.github.io',
-  pageSize: 6,
+  pageSize: 5,
+  // clientId: '',
+  // clientSecret: ''
 }

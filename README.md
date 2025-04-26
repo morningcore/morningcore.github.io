@@ -1,4 +1,4 @@
-# 蔡老板的博客
+# Morningcore's blog
 
 ## Config
 
