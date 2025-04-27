@@ -89,7 +89,7 @@ export default function Main() {
       <Wrapper>
         <Header>
           <HeaderCenter>
-            <TitleLink to="/">
+            <TitleLink to="/posts">
               
               <Title>{title}</Title>
             </TitleLink>

@@ -36,7 +36,7 @@ export default function Home() {
       <Foreground>
         <ShapeEffect count={12} sizes={[40, 80]} />
       </Foreground>
-      <Center>
+      {/* <Center>
         <Title>{t('intro.title')}</Title>
         <Description>{t('intro.description')}</Description>
         <Link to="/posts">
@@ -45,7 +45,7 @@ export default function Home() {
             <IconArrowRight />
           </LinkButton>
         </Link>
-      </Center>
+      </Center> */}
     </Wrapper>
   );
 }

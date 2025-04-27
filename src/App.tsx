@@ -17,7 +17,7 @@ export default function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Main />}>
-          <Route path="" element={<Home />} />
+          {/* <Route path="posts" element={<Home />} /> */}
           <Route path="posts" element={<Outlet />}>
             <Route path="" element={<Articles milestone={milestones.posts} />} />
             <Route path=":id" element={<Article />} />
@@ -26,7 +26,7 @@ export default function App() {
             <Route path="" element={<Articles milestone={milestones.snippets} />} />
             <Route path=":id" element={<Article />} />
           </Route>
-          <Route path="projects" element={<Projects />} />
+          {/* <Route path="projects" element={<Projects />} /> */}
         </Route>
       </Routes>
     </HashRouter>
