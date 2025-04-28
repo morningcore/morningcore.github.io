@@ -59,6 +59,7 @@
             margin-bottom: 10px;
             border: 2px solid #007bff;
             border-radius: 5px;
+            font-family: 'Arial', '微软雅黑', sans-serif;
         }
         button {
             padding: 10px 25px;
@@ -74,8 +75,7 @@
         #history {
             margin-top: 20px;
         }
-        .memo-item {
-            background-color: #f8f9fa;
+        .memo-item {background-color: #f8f9fa;
             padding: 15px;
             margin-bottom: 10px;
             border-radius: 5px;
@@ -89,7 +89,7 @@
             <textarea id="noteInput" placeholder="输入您的笔记..."></textarea>
             <!-- <div> -->
                 <button onclick="saveNote()">保存笔记</button>
-                <button onclick="archiveNotes()">立即归档</button>
+                <button onclick="archiveNotes(new Date())">立即归档全部</button>
             <!-- </div> -->
         <!-- </div> -->
         
@@ -139,40 +139,60 @@
         }
 
         // 自动归档检查
-        function checkAutoArchive() {
-            const today = new Date().toDateString();
+        function checkAutoArchive() {const today = new Date().toDateString();
             const needArchive = notes.some(note => 
                 new Date(note.timestamp).toDateString() !== today
             );
 
             if (needArchive) {
-                archiveNotes();
+                const day = new Date();
+                day.setDate(today.getDate() - 1);//设置自动归档时间范围
+                archiveNotes(day);
             }
         }
 
         // 归档笔记
-        function archiveNotes() {
+        function archiveNotes(day) {
             const today = new Date();
             const yesterday = new Date(today);
             yesterday.setDate(today.getDate() - 1);
             
             const archiveData = notes.filter(note => 
-                new Date(note.timestamp).toDateString() !== today.toDateString()
+                // new Date(note.timestamp).toDateString() !== day.toDateString()
+                new Date(day).getTime() >= new Date(note.timestamp).getTime()
             );
 
             if (archiveData.length > 0) {
-                const blob = new Blob([JSON.stringify(archiveData)], {type: 'text/plain'});
-                const link = document.createElement('a');
-                link.download = `${yesterday.toISOString().split('T')[0]}归档笔记.txt`;
-                link.href = URL.createObjectURL(blob);
-                link.click();
-                
-                // 保留当日笔记
-                notes = notes.filter(note => 
-                    new Date(note.timestamp).toDateString() === today.toDateString()
-                );
-                localStorage.setItem('notes', JSON.stringify(notes));
-                renderNotes();
+                // 归档处理逻辑修改后版本
+                    const archiveData = notes.filter(note => 
+                        new Date(day).getTime() >= newDate(note.timestamp).getTime()
+                    );
+
+                    // 按时间戳倒序排序（参考CSDN博客的排序方案）
+                    archiveData.sort((a, b) => 
+                        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+                    );
+
+                    // 创建格式化文本内容（根据CSDN的时间处理方案）
+                    const formattedContent = archiveData.map(note => {
+                        const date = new Date(note.timestamp);
+                        // 格式化日期为 YYYY-MM-DD HH:mm:ss
+                        const timestampStr = `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2,'0')}-${date.getDate().toString().padStart(2,'0')} ${date.getHours().toString().padStart(2,'0')}:${date.getMinutes().toString().padStart(2,'0')}:${date.getSeconds().toString().padStart(2,'0')}`;
+                        return `${timestampStr}\n${note.content}`; // 将内容中的换行转为空格
+                    }).join('\n\n'); // 每条记录之间空两行
+
+                    const blob = new Blob([formattedContent], {type: 'text/plain'});
+                    const link = document.createElement('a');
+                    link.download = `${yesterday.toISOString().split('T')[0]}归档笔记.txt`;
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+
+                    // 保留当日笔记（原逻辑保持不变）
+                    notes = notes.filter(note => 
+                        new Date(day).getTime() < new Date(note.timestamp).getTime()
+                    );
+                    localStorage.setItem('notes', JSON.stringify(notes));
+                    renderNotes();
             }
         }
 
@@ -182,8 +202,7 @@
             const container = document.getElementById('history');
             container.innerHTML =notes.map((note, index) => `
                 <div class="note-item" ondblclick="editNote(${index})">
-                    <div style="color: #6c757d; font-size: 0.9em;">
-                    ${new Date(note.timestamp).toLocaleString()}
+                    <div style="color: #6c757d; font-size: 0.9em;">${new Date(note.timestamp).toLocaleString()}
                     ${note.modified !== note.timestamp ? '(已修改)' : ''}
                     </div>
                     <div style="margin-top: 5px;">
@@ -191,7 +210,9 @@
                     </div>
                 </div>
                 `).join('');
-        }// 编辑笔记
+        }
+
+        // 编辑笔记
         function editNote(index) {
             const note = notes[index];
             const newContent = prompt('编辑笔记内容：', note.content);
