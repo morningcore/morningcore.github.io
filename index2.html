@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GH Memos</title>
+    <style>
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .memo-card { border: 1px solid #e1e4e8; padding: 15px; margin: 10px 0; border-radius: 6px; }
+        textarea { width: 100%; height: 100px; margin: 10px 0; }
+        button { background: #2ea44f; color: white; border: none; padding: 8px 16px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub Memos</h1>
+        <div>
+            <textarea id="content" placeholder="记录你的想法..."></textarea>
+            <button onclick="saveMemo()">保存</button>
+        </div>
+        <div id="memos-list"></div>
+    </div>
+
+    <script>
+        // 使用LocalStorage持久化存储
+        let memos = JSON.parse(localStorage.getItem('gh-memos') || '[]');
+
+        function renderMemos() {
+            const list = document.getElementById('memos-list');
+            list.innerHTML = memos.map((memo, index) => `
+                <div class="memo-card">
+                    <div>${memo.content}</div>
+                    <small>${new Date(memo.time).toLocaleString()}</small>
+                    <button onclick="deleteMemo(${index})">删除</button>
+                </div>
+            `).join('');
+        }
+
+        function saveMemo() {
+            const content = document.getElementById('content').value;
+            if (content) {
+                memos.unshift({
+                    content,
+                    time: Date.now()
+                });
+                localStorage.setItem('gh-memos', JSON.stringify(memos));
+                document.getElementById('content').value = '';
+                renderMemos();
+            }
+        }
+
+        function deleteMemo(index) {
+            memos.splice(index, 1);
+            localStorage.setItem('gh-memos', JSON.stringify(memos));
+            renderMemos();
+        }
+
+        // 初始化渲染
+        renderMemos();
+    </script>
+</body>
+</html>
