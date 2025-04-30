@@ -10,29 +10,7 @@
             padding: 20px;
             font-family: Arial, sans-serif;
         }
-        /*.container {
-            display: flex;
-            gap: 20px;
-        }*/
-/*        #editorSection {
-            flex: 1;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }*/
-        /*#notesSection {
-            flex: 2;
-            position: relative;
-        }*/
-        /*#timeline {
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #2196F3;
-        }*/
+    
         .note-item {
             background-color: #f8f9fa;
             padding: 15px;
@@ -40,18 +18,7 @@
             border-radius: 5px;
             border-left: 4px solid #007bff;
         }
-        /*.note-time {
-            color: #666;
-            font-size: 0.9em;
-        }
-        .note-content {
-            background: white;
-            padding: 15px;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            cursor: pointer;
-            white-space: pre-line;
-        }*/
+
         textarea {
             width: 100%;
             height: 150px;
@@ -70,52 +37,143 @@
             cursor: pointer;
         }
         button:hover {
-            background: #1976D2;
+            background:#1976D2;
         }
         #history {
             margin-top: 20px;
         }
-        .memo-item {background-color: #f8f9fa;
+        .memo-item {
+            background-color: #f8f9fa;
             padding: 15px;
             margin-bottom: 10px;
             border-radius: 5px;
             border-left: 4px solid #007bff;
         }
+        button[onclick^="handleDeleteNote"]:hover {
+            background-color: #ffe5e5 !important;
+            border-radius: 50%;
+        }
+        #storageStatus {
+            transform: translateY(-50%);
+            top: 50%;
+        }
     </style>
 </head>
 <body>
-    <!-- <div class="container"> -->
-        <!-- <div id="editorSection"> -->
-            <textarea id="noteInput" placeholder="输入您的笔记..."></textarea>
-            <!-- <div> -->
-                <button onclick="saveNote()">保存笔记</button>
-                <button onclick="archiveNotes(new Date())">立即归档全部</button>
-            <!-- </div> -->
-        <!-- </div> -->
-        
-        <!-- <div id="notesSection"> -->
-            <!-- <div id="timeline"></div> -->
-            <!-- <div id="notesContainer"></div> -->
-            <div id="history"></div>
-        <!-- </div> -->
-    <!-- </div> -->
 
+    <textarea id="noteInput" placeholder="输入您的笔记..."></textarea>
+    <div style="display: flex; align-items: center; gap: 10px;">
+    <!-- 左侧按钮组 -->
+    <div>
+        <button onclick="saveNote()">保存笔记</button>
+        <button onclick="archiveNotes(new Date())">立即归档全部</button>
+        <button onclick="document.getElementById('importFile').click()">导入笔记</button>
+        <input type="file" id="importFile" hidden accept=".txt"/>
+    </div><!-- 右侧存储状态 -->
+    <div style="flex: 1; text-align: right;">
+        <span id="storageStatus" style="color: #666; font-size: 0.9em;">
+            已用空间：0 KB
+        </span>
+    </div>
+</div>
+    <div id="history"></div>
+        
+    
     <script>
         // 初始化存储
         let notes = JSON.parse(localStorage.getItem('notes') || '[]');
-        
+        const displayElement = document.getElementById('storageStatus');
+        displayElement.textContent = calculateLocalStorageUsage();
         // 自动保存功能
         setInterval(() => {
             const content = document.getElementById('noteInput').value;
             localStorage.setItem('autoSave', content);
+        
+            //刷新localstorage使用量
+            const usedSpace = calculateLocalStorageUsage();
+            const displayElement = document.getElementById('storageStatus');
+            displayElement.textContent = usedSpace
+
         }, 5000);
 
+        // 计算已用存储空间函数
+        function calculateLocalStorageUsage() {
+            let total = 0;for (let key in localStorage) {
+                if (localStorage.hasOwnProperty(key)) {
+                    total += (localStorage[key].length * 2); // 每个字符占2字节
+                }
+            }
+            const sizeInB = Math.round(total );
+            const sizeInKB = (total / 1024).toFixed(2);
+             // 新增使用率检查
+            const maxSpace =1 * 1024 ; // 浏览器默认5MB，超过1M自动归档并提醒
+                
+             if (sizeInKB > maxSpace ) {
+                archiveNotes(new Date())
+                alert("警告：本地存储空间使用已"+sizeInKB+"KB，超过50%，已为您自动归档！");
+            }
+            total = sizeInB < 1024 ? 
+                `已用空间：${sizeInB} B / `: 
+                `已用空间：${sizeInKB} KB / ` ;
+            return total+' 1024 KB '; // 返回字节数
+        }
         // 加载自动保存内容
         window.onload = () => {
             document.getElementById('noteInput').value = localStorage.getItem('autoSave') || '';
             renderNotes();
             checkAutoArchive();
         };
+
+        document.getElementById('importFile').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const content = e.target.result;
+                        // 验证文件格式（基于归档格式的正则验证）
+                        const noteRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\n[\s\S]+?(?=\n\n|$)/gm;
+                        
+                        if (!noteRegex.test(content)) {
+                            alert('文件格式不符合要求，请选择正确的归档文件');
+                            return;
+                        }
+
+                        // 解析笔记内容
+                        const importedNotes = content.split(/\n\n+/g).map(rawNote => {
+                            const [timestampStr, ...contentLines] = rawNote.split('\n');
+                            // 验证时间戳格式
+                            if (!/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(timestampStr)) {
+                                throw new Error('无效的时间戳格式');
+                            }
+                            return {
+                                timestamp: new Date(timestampStr).toISOString(),
+                                content: contentLines.join('\n').trim()
+                            };
+                        });
+
+                        // 合并笔记（去重处理）
+                        const existingNotes = JSON.parse(localStorage.getItem('notes') || '[]');
+                        const mergedNotes = [...existingNotes, ...importedNotes].filter((note, index, self) =>
+                            index === self.findIndex(n =>
+                                n.timestamp === note.timestamp && 
+                                n.content === note.content
+                            )
+                        );
+
+                        // 保存合并后的笔记
+                        localStorage.setItem('notes', JSON.stringify(mergedNotes));
+                        notes= mergedNotes;
+                        renderNotes();
+                        alert('成功导入 ' + importedNotes.length + ' 条笔记');
+
+                    } catch (error) {
+                        alert('文件解析失败: ' + error.message);
+                    }
+                };
+                reader.readAsText(file);
+            });
 
         // 保存笔记
         function saveNote() {
@@ -139,9 +197,9 @@
         }
 
         // 自动归档检查
-        function checkAutoArchive() {const today = new Date().toDateString();
+        function checkAutoArchive() {const today = new Date();
             const needArchive = notes.some(note => 
-                new Date(note.timestamp).toDateString() !== today
+                new Date(note.timestamp).toDateString() !== today.toDateString()
             );
 
             if (needArchive) {
@@ -165,7 +223,7 @@
             if (archiveData.length > 0) {
                 // 归档处理逻辑修改后版本
                     const archiveData = notes.filter(note => 
-                        new Date(day).getTime() >= newDate(note.timestamp).getTime()
+                        new Date(day).getTime() >= new Date(note.timestamp).getTime()
                     );
 
                     // 按时间戳倒序排序（参考CSDN博客的排序方案）
@@ -183,7 +241,7 @@
 
                     const blob = new Blob([formattedContent], {type: 'text/plain'});
                     const link = document.createElement('a');
-                    link.download = `${yesterday.toISOString().split('T')[0]}归档笔记.txt`;
+                    link.download = `${today.toISOString().split('T')[0]}最新归档笔记.txt`;
                     link.href = URL.createObjectURL(blob);
                     link.click();
 
@@ -196,32 +254,104 @@
             }
         }
 
-        // 渲染笔记
+        // 渲染笔记（带删除功能）
         function renderNotes() {
-            // const container = document.getElementById('notesContainer');
             const container = document.getElementById('history');
-            container.innerHTML =notes.map((note, index) => `
+            container.innerHTML = notes.map((note, index) => `
                 <div class="note-item" ondblclick="editNote(${index})">
-                    <div style="color: #6c757d; font-size: 0.9em;">${new Date(note.timestamp).toLocaleString()}
-                    ${note.modified !== note.timestamp ? '(已修改)' : ''}
+                    <div style="display: flex; justify-content: space-between; align-items: center; color: #6c757d; font-size: 0.9em;"><div>
+                            ${new Date(note.timestamp).toLocaleString()}
+                            ${note.modified !== note.timestamp ? '(已修改)' : ''}
+                        </div>
+                        <button 
+                            onclick="handleDeleteNote(${index})" 
+                            style="
+                                background: none;
+                                border: none;
+                                color: #dc3545;
+                                font-size: 0.9em;
+                                cursor: pointer;
+                                padding: 0 5px;
+                            ">
+                            ×
+                        </button>
                     </div>
                     <div style="margin-top: 5px;">
-                    ${note.content.replace(/\n/g, '<br>')}
+                        ${note.content.replace(/\n/g, '<br>')}
                     </div>
                 </div>
-                `).join('');
+            `).join('');
         }
 
-        // 编辑笔记
+        // 删除处理函数
+        function handleDeleteNote(index) {
+            if (confirm('确定要删除这条笔记吗？此操作不可撤销！')) {
+                notes.splice(index, 1);
+                renderNotes();
+                // 这里可以添加持久化存储的代码（如更新localStorage）
+            }
+        }
+
+        // 编辑笔记功能增强版
         function editNote(index) {
             const note = notes[index];
-            const newContent = prompt('编辑笔记内容：', note.content);
-            if (newContent !== null) {
-                notes[index].content = newContent;
-                notes[index].modified = new Date().toISOString();
-                localStorage.setItem('notes', JSON.stringify(notes));
-                renderNotes();
-            }
+            
+            // 创建编辑对话框
+            const dialog = document.createElement('dialog');
+            dialog.innerHTML = `
+                <form method="dialog">
+                    <h3>编辑笔记内容：</h3>
+                    <textarea id="noteEditor" 
+                             style="width:500px; height:300px; 
+                                    padding:10px; font-size:16px;"
+                             placeholder="支持换行输入，输入'1.'可自动生成序号..."
+                             >${note.content}</textarea>
+                    <div style="margin-top:10px;">
+                        <button value="cancel">取消</button>
+                        <button value="confirm">保存</button></div>
+                </form>
+            `;
+            
+            document.body.appendChild(dialog);
+            dialog.showModal();
+
+            // 获取编辑器元素
+            const editor = dialog.querySelector('#noteEditor');
+            
+            // 自动编号功能
+            let autoNumbering = false;
+            editor.addEventListener('input', function(e) {
+                // 检测换行自动编号
+                if (autoNumbering) {
+                    const lines = this.value.split('\n');
+                    const lastLine = lines[lines.length - 2] || '';
+                    if (/^\d+\.\s/.test(lastLine)) {
+                        const newNumber = parseInt(lastLine.match(/^\d+/)[0]) + 1;
+                        this.value = this.value + `\n${newNumber}. `;
+                    }
+                }
+            });
+
+            // 手动编号快捷键
+            editor.addEventListener('keydown', function(e) {
+                if (e.key === ' ' && this.selectionStart === this.value.length) {const textBefore = this.value.slice(0, this.selectionStart);
+                    if (/\d+\.$/.test(textBefore)) {
+                        this.value = textBefore + ' ';
+                        autoNumbering = true;
+                    }
+                }
+            });
+
+            dialog.addEventListener('close', () => {
+                if (dialog.returnValue === 'confirm') {
+                    const newContent = editor.value;
+                    notes[index].content = newContent;
+                    notes[index].modified = new Date().toISOString();
+                    localStorage.setItem('notes', JSON.stringify(notes));
+                    renderNotes();
+                }
+                dialog.remove();
+            });
         }
     </script>
 </body>
